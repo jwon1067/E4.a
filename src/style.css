@@ -33,6 +33,8 @@
   --tilt-angle: 24deg;
   --overlap: 18px;
   --gap: 14px;
+  --small-gap: 6px;
+  --item-gap: 10px;
   --radius: 10px;
 }
 
@@ -69,7 +71,8 @@ body {
   border: 1px solid var(--panel-edge);
   border-radius: var(--radius);
   background: var(--panel-background);
-  box-shadow: var(--panel-glow), inset 0 0 18px var(--panel-inner-glow);
+  box-shadow: 0 0 24px var(--panel-glow), inset 0 0 18px
+    var(--panel-inner-glow);
   transition: opacity 400ms, transform 400ms;
 }
 
@@ -81,7 +84,8 @@ body {
 
 .panel-right {
   transform-origin: left center;
-  transform: translateX(-var(--overlap)) rotateY(calc(-1 * var(--tilt-angle)));
+  transform: translateX(calc(-1 * var(--overlap))) rotateY(calc(-1 *
+    var(--tilt-angle)));
 }
 
 .cabinet[data-mode="title"] .panel,
@@ -111,7 +115,7 @@ output {
 .pips,
 .cells {
   display: flex;
-  gap: 6px;
+  gap: var(--small-gap);
 }
 
 .pip,
@@ -179,13 +183,13 @@ output {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 10px;
+  gap: var(--item-gap);
 }
 
 .stop {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--item-gap);
   font-size: 12px;
   color: var(--muted-blue);
 }
@@ -241,7 +245,7 @@ output {
   position: absolute;
   inset: 22% -6% auto;
   display: grid;
-  gap: 6px;
+  gap: var(--small-gap);
   padding: var(--gap);
   text-align: center;
   background: linear-gradient(90deg, transparent, rgba(14, 10, 34, 0.9) 20% 80%,
